@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bootstrap</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<style>
+    .container
+    {
+        border: 8px solid black;
+    }
+    .row
+    {
+        border: 5px solid red;
+    }
+    .col-8,.col-12,.col-4
+    {
+        border: 5px solid green;
+    }
+    #navbar>ul>li
+    {
+        display: inline-block;
+        margin: 10px;
+    }
+    
+</style>
+</head>
+<body>
+    <!-- <button class="btn btn-info">click me</button> -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12"><h1>WEBSITE NAME</h1></div>
+        </div>
+        <div class="row"> 
+            <div class="col-12" id="navbar">
+                <ul class="container-fluid">
+                    <li><a href="">HOME</a></li>
+                    <li><a href="">GAMES</a></li>
+                    <li><a href="">LIBRARY</a></li>
+                    <li><a href="">MUSIC</a></li>
+                    <li><a href="">CONTACT US</a></li>
+                </ul>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-8 ">
+                    <h1>SUB-HEADING</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga deleniti repellendus dicta quas tempora dolores similique, nisi harum maiores explicabo? Nobis voluptas vel, itaque eveniet labore repellendus temporibus voluptates inventore officiis corrupti beatae optio excepturi esse veritatis odit omnis consectetur quaerat nam iusto fugit suscipit amet! Tempore officiis odit quos ipsam hic ipsa veniam rem dolores officia deserunt! Error, repellat labore? Deleniti ipsa maxime rerum neque molestiae minima adipisci eos doloribus cumque, facere, dolorem quam amet qui officiis perferendis eligendi provident repellat alias tempora voluptatum veniam eveniet perspiciatis, quas hic. Blanditiis natus consequuntur optio reiciendis quod a molestiae illum velit! Illo quisquam animi aperiam minus quibusdam ipsum laborum laboriosam, repellat perferendis sit assumenda consectetur, voluptates adipisci tempora. Quod porro, assumenda odio quibusdam dolore consectetur accusantium!</p>
+                </div>
+                <div class="col-md-4">
+                    <ul>
+                        <li><a href="">HOME</a></li>
+                        <li><a href="">GAMES</a></li>
+                        <li><a href="">LIBRARY</a></li>
+                        <li><a href="">MUSIC</a></li>
+                        <li><a href="">CONTACT US</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-12 ">
+                    @copywright 2020
+                </div>
+            </div> 
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col order-md-last orange">col1</div>
+            <div class="col blue pink">col2</div>
+            <div class="col order-md-first green">col3</div>
+            <div class="col red">col4</div>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 m-auto">hello</div>
+        </div>
+    </div>
+</body>
+</html>

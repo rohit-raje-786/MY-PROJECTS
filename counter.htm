@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            COUNTER
+        </title>
+        <style>
+            *
+            {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            body{
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: lightgreen;
+            }
+            .container{
+                width: 300px;
+                height: 300px;
+                border: 1px solid black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: lightskyblue;
+            }
+            .btn
+            {
+                margin: 10px;
+                position:relative;
+                top: 38%;
+                padding: 10px;
+                border-radius: 5px;
+                outline: none;
+                background: black;
+                color: white;
+                border: none;
+                opacity: 0.8;
+                
+            }
+            .btn:hover{
+                opacity: 1;
+            }
+            .counter
+            {
+                font-size: 90px;
+                position: absolute;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="counter">0</div>
+            <button type="button" class="btn lower">LOWER</button>
+            <button type="button" class="btn upper">UPPER</button>
+        </div>
+    </body>
+    <script>
+        const lower=document.querySelector(".lower");
+        const upper=document.querySelector(".upper");
+        const counter=document.querySelector(".counter");
+        let count=0;
+        lower.addEventListener('click',decrement);
+        upper.addEventListener('click',increment);
+
+        function decrement(){
+            count--;
+            if(count<0)
+            {
+                counter.style.color="red";
+            }
+            else if(count===0)
+            {
+                counter.style.color="white";
+            }
+            counter.innerHTML=count;
+            
+            counter.animate([{opacity:0.2},{opacity:1}],{duration:500,fill:"forwards"});
+        }
+        function increment()
+        {
+            count++;
+            if(count>0)
+            {
+                counter.style.color="green";
+            }
+            else if(count===0)
+            {
+                counter.style.color="white";
+            }
+            counter.innerHTML=count;
+
+            counter.animate([{opacity:0.2},{opacity:1}],{duration:500,fill:"forwards"});
+        }
+    </script>
+</html>

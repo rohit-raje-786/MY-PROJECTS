@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>personality info</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container{
+            width: 500px;
+            height: 559px;
+            border: 2px solid black;
+            position: absolute;
+        }
+        .img-container
+        {
+        
+            text-align: center;
+            
+        }
+        img{
+            border-radius: 50%;
+            height: 250px;
+            padding-top: 5px;
+            
+        }
+        h4{
+            text-align: center;
+
+        }
+        p{
+            text-align: center;
+            padding:0 10px;
+            
+        } 
+        #info
+        {
+            
+            height: 180px;
+        }
+        #job{
+            color: blue;
+        }
+        .btns-container
+        {
+            
+            text-align: center;
+            margin-top: 5px;
+            position: relative;
+            
+        }
+        button{
+            padding: 8px;
+            margin-right: 10px;
+        }
+        .random-btn{
+            text-align: center;
+            margin-top: 6px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="img-container">
+            <img src="https://pbs.twimg.com/profile_images/1260456676890742786/MzGhbLvr_400x400.jpg" id="person-img" alt="image">
+        </div>
+        <h4 id="name">Sachin Tendulkar</h4>
+        <p id="job">Cricketer</p>
+        <p id="info">Sachin Ramesh Tendulk born 24 April 1973 is an Indian former international cricketer and a former captain of the Indian national team. He is widely regarded as one of the greatest batsmen in the history of cricket.[5] He is the highest run scorer of all time in International cricket. Considered as the world's most prolific batsman of all time,[6] he is the only player to have scored one hundred international centuries, the first batsman to score a double century in a One Day International (ODI), the holder of the record for the most runs in both Test and ODI, and the only player to complete more than 30,000 runs in international cricket.</p>
+        <div class="btns-container">
+            <button id="prev">Prev</button>
+            <button id="next">Next</button>
+        </div>
+        <div class="random-btn">
+            <button id="random">Surprise me</button>
+        </div>
+    </div>
+    <script>
+        const reviews=[
+        {
+          id:1,
+          name:"Sachin Tendulkar",
+          job:"cricketer",
+          img:"https://pbs.twimg.com/profile_images/1260456676890742786/MzGhbLvr_400x400.jpg",
+          text:"Sachin Ramesh Tendulk born 24 April 1973 is an Indian former international cricketer and a former captain of the Indian national team. He is widely regarded as one of the greatest batsmen in the history of cricket.[5] He is the highest run scorer of all time in International cricket. Considered as the world's most prolific batsman of all time,[6] he is the only player to have scored one hundred international centuries, the first batsman to score a double century in a One Day International (ODI), the holder of the record for the most runs in both Test and ODI, and the only player to complete more than 30,000 runs in international cricket.",
+        },
+        {
+            id:2,
+            name:'Salman Khan',
+            job:'Actor',
+            img:"https://filmfare.wwmindia.com/content/2020/may/salman-khan-11590853263.jpg",
+            text:"Abdul Rashid Salim Salman Khan 27 December 1965)[4] is an Indian film actor, producer, occasional singer and television personality. In a film career spanning over thirty years, Khan has received numerous awards, including two National Film Awards as a film producer, and two Filmfare Awards for acting.[5] He has a significant following in Asia and the Indian diaspora worldwide,[6][better source needed] and is cited in the media as one of the most commercially successful actors of both world and Indian cinema.",
+        },
+        {
+            id:3,
+            name:'Mark Zuckerberg',
+            job:'CEO',
+            img:'https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2020/05/931/523/Mark-Zuckerberg-Getty.jpg?ve=1&tl=1',
+            text:'Mark Elliot Zuckerberg (/ˈzʌkərbɜːrɡ/; born May 14, 1984) is an American internet entrepreneur and philanthropist. He is known for co-founding Facebook, Inc. and serves as its chairman, chief executive officer, and controlling shareholder.[3][4] He also is a co-founder of the solar sail spacecraft development project Breakthrough Starshot and serves as one of its board members.',
+        },
+        {
+            id:4,
+            name:'Mukesh Ambani',
+            job:'Entrepreneur',
+            img:'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRgaZGtYNXvHI5HUfslvUv3jmE_I7_1OW4vMRwUzjieL7o-cA2D&usqp=CAU',
+            text:'Mukesh Dhirubhai Ambani (born 19 April 1957) is an Indian billionaire business magnate, and the chairman, managing director, and largest shareholder of Reliance Industries Ltd. (RIL), a Fortune Global 500 company and India'
+        },
+        ];
+        
+        const img=document.getElementById('person-img');
+        const name=document.getElementById('name');
+        const job=document.getElementById('job');
+        const info=document.getElementById('info');
+        const prev=document.getElementById('prev');
+        const next=document.getElementById('next');
+        const random=document.getElementById('random');
+        let currentitem=0;
+        window.addEventListener('DOMContentLoaded',function()
+        {
+            showperson();   
+        });
+        function showperson(){
+            const item=reviews[currentitem];
+            img.src=item.img;
+            name.textContent=item.name;
+            job.textContent=item.job;
+            info.textContent=item.text;
+        }
+        next.addEventListener('click',function(){
+            currentitem++;
+            if(currentitem>reviews.length-1)
+            {
+                currentitem=0;
+            }
+            showperson();
+        });
+        prev.addEventListener('click',function(){
+            currentitem--;
+            if(currentitem<0)
+            {
+                currentitem=reviews.length-1;
+            }
+            showperson();
+        })
+        random.addEventListener('click',function(){
+            const ran=Math.floor(Math.random()*reviews.length);
+            currentitem=ran;
+            showperson();
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

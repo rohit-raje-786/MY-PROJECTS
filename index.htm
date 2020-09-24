@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>check</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container
+        {
+            border: 1px solid black;
+            width: 300px;
+            height: 500px;
+            position: relative;
+        }
+        .addto{
+            position:fixed;
+            top:80.2%;
+            
+            
+        }
+        #add
+        {
+    
+            height: 40px;
+            width: 298px;
+            outline: none;
+            text-align: center;
+            background: lightblue;
+            border: 1px solid black;
+        }
+        li{
+            list-style: none;
+            margin-left: 10px;
+            font-size: 20px;
+            text-transform: capitalize;
+            border-bottom: 1px solid black;
+           
+            
+        }
+        .header{
+            height: 30%;
+            background: url('night.jpg')center/cover no-repeat;
+        }
+        .date
+        {
+            color: white;
+            position: absolute;
+            top: 24%;
+            margin-left: 10px;
+            font-size: 18px;
+        }
+        .fa-refresh
+        {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            color: white;
+            cursor: pointer;
+            font-size: 25px;
+        }
+        .fa-plus-circle
+        {
+            color: blue;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            font-size: 40px;
+        }
+       
+    </style>
+    <body>
+        <div class="container">
+            <div class="header">
+                <i class="fa fa-refresh" id="clr"></i>
+                <div class="date">
+                    <span id="date"></span>
+                </div>
+            </div>
+           <div class="contents">
+            <ul id="list">
+                <!-- <li class="item">
+                     <i class="fa fa-circle-thin co" job="complete" id="0"></i>
+                    <p class="text"></p>
+                    <i class="fa fa-trash"></i>
+                </li> -->
+            </ul>
+           </div> 
+            <div class="addto">
+                <i class="fa fa-plus-circle"></i>
+                <input type="text"  id="add"  placeholder="Add-To-Do">
+            </div>
+        </div>
+    </body>
+    <script>
+    
+       const inp=document.querySelector("#add");
+       const list=document.querySelector("#list");
+       const date=document.querySelector("#date");
+       const today=new Date();
+       const time={weekday:'long',month:'short',day:'numeric'}
+       date.innerHTML=today.toLocaleDateString("en-US",time);
+        const clear=document.querySelector("#clr");
+        const container=document.querySelector(".contents");
+
+        clear.addEventListener("click",()=>{
+            list.innerHTML="";
+        })
+
+
+        
+       function addtodo(todo){
+
+        const item=`<li class="item">
+            <i class="fa fa-circle-thin co" job="complete" id="0"></i>
+                    <p class="text">${todo}</p>
+                    <i class="fa fa-trash-o de" job="delete" id="0"></i>
+                    </li>`;
+
+
+           list.insertAdjacentHTML("beforeend",item);
+       }
+       document.addEventListener("keypress",(e)=>
+       {
+        if(e.keyCode===13)
+        {
+            const x=inp.value;
+            if(x)
+            {
+                addtodo(x);
+                
+            }
+            inp.value="";    
+        }
+       });
+
+    </script>
+</html>

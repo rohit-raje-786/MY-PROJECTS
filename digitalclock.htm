@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            DIGITAL CLOCK
+        </title>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+        <style>
+            *
+            {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            body{
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 70px;
+                font-family: 'Orbitron', sans-serif;
+                color: green;
+                background: #000;
+            }
+            h3{
+                position: absolute;
+                color: white;
+                top: 50px;
+                text-align: center;
+                font-size: 30px;
+                letter-spacing: 3px;
+                word-spacing: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>DEVELOPED BY ROHIT RAJE</h3>
+        <div class="clock">
+           
+        </div>
+        <script type="text/javascript">
+          
+            function showtime()
+            {
+                let date=new Date();
+                let hours=date.getHours();
+                let minutes=date.getMinutes();
+                let seconds=date.getSeconds();
+
+                let formathrs=formathours(hours);
+                hours=checktime(hours);
+
+                hours=addzero(hours);
+                minutes=addzero(minutes);
+                seconds=addzero(seconds);
+
+
+                document.querySelector(".clock").innerHTML=`${hours} : ${minutes} : ${seconds} ${formathrs}`
+            }
+
+            function formathours(time)
+            {
+                let format="AM";
+                if(time>=12)
+                {
+                    format="PM";
+                }
+                return format;
+            }
+
+            function checktime(time)
+            {
+                if(time>=12)
+                {
+                    time=time-12;
+                }
+                return time;
+            }
+
+            function addzero(time)
+            {
+                if(time<10)
+                {
+                    time='0'+time;
+                }
+                return time;
+            }
+
+            showtime();
+            setInterval(showtime,1000);
+
+
+
+
+
+
+
+
+
+
+        </script>
+    </body>
+</html>

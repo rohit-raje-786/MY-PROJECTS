@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            IMAGE SLIDER
+        </title>
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            body{
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: lightblue;
+            }
+            .images
+            {
+                width: 500px;
+                height: 500px;
+                border: 1px solid black;
+                position: relative;
+                background: url("1.jfif");
+                background-size: cover;
+            }
+            .btn
+            {
+                position: absolute;
+                background: black;
+                color: white;
+                padding: 10px;
+                border: none;
+                outline: none;
+                font-size: 20px;
+                border-radius: 5px;
+                opacity: 0.8;
+            }
+            .prevbtn
+            {
+                position:absolute;
+                top: 50%;
+                left: -38px;
+            }
+            .nextbtn
+            {
+                position: absolute;
+                top: 50%;
+                right: -35px;
+            }
+            .prevbtn:hover{
+                opacity: 1
+            }
+            .nextbtn:hover{
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="images">
+            <button type="button" class="btn prevbtn">PREV</button>
+            <button type="button" class="btn nextbtn">NEXT</button>
+        </div>
+        <script>
+            const img=document.querySelector(".images");
+            const prev=document.querySelector(".prevbtn");
+            const next=document.querySelector(".nextbtn");
+            let  count=1;
+            prev.addEventListener("click",()=>
+            {
+                count--;
+                if(count===0)
+                {
+                    count=6;
+                }
+                else{
+                    img.style.backgroundImage=`url(${count}.jfif)`
+                }
+                
+            });
+
+            next.addEventListener("click",()=>
+            {
+                count++;
+                if(count===6)
+                {
+                    count=0;
+                }
+                else{
+                    img.style.backgroundImage=`url(${count}.jfif)`
+                }
+                
+            });
+        </script>
+    </body>
+</html>

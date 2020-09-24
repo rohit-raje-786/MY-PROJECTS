@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contents
+        {
+            display: none;   
+        }
+       
+        .vanish
+        {
+            display:block;
+        }
+        img{
+            height: 500px;
+            width:650px;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+       
+        .abt{
+            position: fixed;
+        }
+        p{
+            text-transform: capitalize;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="sonu.jpg" alt="">
+        </div>
+       
+        <div class="btns">
+            <button data-id="history">EDUCATION</button>
+            <button data-id="vision">ADDRESS</button>
+            <button data-id="about">HOBBIES</button>
+        </div>
+        <div class="abt">
+            <div class="contents history">
+                <h1>EDUCATION</h1>
+                <p>rohit is currently pursuing btech in information technology.</p>
+            </div>
+            <div class="contents vision">
+                <h1>ADDRESS</h1>
+                <p>he stays in kalyan</p>
+            </div>
+            <div class="contents about">
+                <h1>HOBBIES</h1>
+                <p>he loves to do coding and passionate about becoming a data scientist</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const btns=document.querySelectorAll('.btns');
+        const contents=document.querySelectorAll('.abt');
+        btns.forEach(function(btn){
+            btn.addEventListener('click',(e)=>{
+                const id=e.target.dataset.id;
+                contents.forEach(function(content){
+                    const items=content.children;
+                    for(var i=0;i<items.length;i++)
+                    {
+                        if(items[i].classList.contains(id))
+                        {
+                            items[i].classList.add('vanish');
+                        }
+                        else{
+                            items[i].classList.remove('vanish');
+                        }
+                        
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

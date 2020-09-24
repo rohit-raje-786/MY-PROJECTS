@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GRADE CALCULATOR</title>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            body{
+                background: #3498db;
+                font-family: 'Montserrat', sans-serif;
+        
+            }
+            .main{
+               width: 500px;
+               height: 400px;
+               border: none;
+               position: absolute;
+               top: 50%;
+               left: 50%;
+               transform: translate(-50%,-50%);
+               background: #34495e;
+               border-radius: 20px;
+               
+            }
+            .grade
+            {
+             display: flex;
+             flex-direction: column; 
+             align-items: flex-end;
+             
+            }
+            input{
+                width: 200px;
+                margin: 20px;
+                padding: 10px;
+                text-align: center;
+                background: #34495e;
+                color: white;
+                outline: none;
+                border: none;
+                border-bottom: 1px solid black;
+            }
+            button{
+                position: relative;
+                padding: 10px;
+                letter-spacing: 2px;
+                margin: 10px 50px 0px 0px;
+                background: #34495e;
+                outline: none;
+                border: 1px solid white;
+                border-radius: 10px;
+            }
+            button:hover{
+                box-shadow: 1px 1px 5px 2px white;
+            }
+            .logo{
+                position: fixed;
+                margin: 20px;
+                width: 100px;
+                text-align: center;
+                letter-spacing: 2px;
+                line-height: 1.5;
+                animation-iteration-count: infinite;
+            }
+            #answer{
+                position: absolute;
+                left: 10px;
+                top: 90px;
+                height: 100px;
+                color: white;
+                width: 200px;
+                margin-left: 10px;
+                line-height: 2;
+            }
+            .animate__heartBeat{
+                animation-iteration-count: 2;
+            }
+            h3{
+                text-transform: uppercase;
+            
+            }
+        </style>
+    </head>
+    <body>
+        <form class="main">
+            <div class="logo"><h3 class="animate__heartBeat">GRADE CALCULATOR</h3></div>
+            <div><p id="answer"></p></div>
+            <div class="grade">
+                <input type="text" id="answer1" placeholder="PROGRAMMING" autocomplete="off">
+                <input type="text" id="answer2" placeholder="MATHS" autocomplete="off">
+                <input type="text" id="answer3" placeholder="PHYSCIS" autocomplete="off">
+                <input type="text" id="answer4" placeholder="MECHANICS" autocomplete="off">
+                <input type="button" value="VIEW RESULT"  onclick="result()" >
+            </div>
+        </form>
+        <script>
+            
+
+            function result(){
+            let a=document.getElementById("answer1").value;
+            let b=document.getElementById("answer2").value;
+            let c=document.getElementById("answer3").value;
+            let d=document.getElementById("answer4").value;
+            let total=parseFloat(a)+parseFloat(b)+parseFloat(c)+parseFloat(d);
+            let perc=parseFloat((total/400)*100).toFixed(2);
+             var grade;
+
+            if(perc>=80 && perc<=100)
+            {
+                grade='A';
+            }
+            if(perc>=60 && perc<80)
+            {
+                grade='B';
+            }
+            if(perc>=40 && perc<60)
+            {
+                grade='C';
+            }
+            if(perc<40)
+            {
+                grade='F';
+            }
+            if(perc>40)
+            {
+                document.getElementById("answer").innerHTML=`<h3>you are pass<h3>.out of 400 your total is ${total} and percentange is ${perc}% .and your grade is ${grade}`
+            }
+            else{
+                document.getElementById("answer").innerHTML=`<h3>you are fail<h3> out of 400 your total is ${total} and percentange is ${perc}% .and your grade is ${grade}`
+            }
+            }
+        </script>
+    </body>
+</html>

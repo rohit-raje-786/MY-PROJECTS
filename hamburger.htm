@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HAMBURGER MENU</title>
+    </head>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .menu-right
+        {
+            text-align: right;
+            
+        }
+        ul li{
+            display: inline-block;
+            margin: 20px;
+            list-style: none;
+        }
+        ul li a{
+            text-decoration: none;
+            color: #fff;
+        }
+        .nav-bar{
+            background: #1d4052;
+            color:#fff;
+            padding: 20px;
+            font-family:sans-serif;
+        }
+        span{
+            margin: 0 20px;
+            font-size: 28px;
+            cursor: pointer;
+            display: none;
+        }
+        @media only screen and (max-width: 700px) {
+            span{
+                display: block;
+            }
+            ul li{
+                display: block;
+            }
+            ul{
+                display: none;
+            }
+        }
+        
+    </style>
+    <body>
+       <div class="nav-bar">
+           <div class="menu-right">
+               <span onclick="myfunction()">&#9776;</span>
+            <ul id="menu">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">SERVICES</a></li>
+                <li><a href="#">BLOGS</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+           </div>
+       </div>
+    </body>
+    <script>
+        function myfunction(){
+            var x=document.getElementById("menu");
+
+            if(x.style.display=='block')
+            {
+                x.style.display="none";
+            }
+            else{
+                x.style.display="block";
+            }
+        }
+    </script>
+</html>

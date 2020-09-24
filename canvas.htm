@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CANVAS</title>
+    </head>
+    <style>
+        body{
+            margin: 0;
+        }
+        canvas{
+            background: black;
+        }
+    </style>
+    <body>
+        <canvas></canvas>
+    </body>
+    <script>
+        var canvas=document.querySelector("canvas");
+        var ctx=canvas.getContext("2d");
+        canvas.width=window.innerWidth;
+        canvas.height=window.innerHeight;
+
+        //ctx.fillStyle="pink";
+        //ctx.fillRect(100,100,100,100);
+        //ctx.fillStyle="orange"
+        //ctx.fillRect(300,200,100,100);
+        //ctx.fillStyle="green";
+        //ctx.fillRect(500,300,100,100);
+        
+
+        //line
+        //ctx.beginPath();
+        //ctx.moveTo(50,300);
+        //ctx.lineTo(300,100);
+        
+        //ctx.lineTo(400,300);
+        //ctx.strokeStyle="blue";
+        //ctx.stroke();
+
+        //arc
+       // ctx.beginPath();
+       // ctx.arc(300,300,30,0,Math.PI*2,false);
+       // ctx.strokeStyle="blue";
+        //ctx.stroke();
+
+
+       
+
+        /*for(var i=0 ;i<10;i++)
+        {
+            var x=Math.random()*window.innerWidth;
+            var y=Math.random()*window.innerHeight;
+            var color=["yellow","blue","green","red","pink","purple"];
+            var index=Math.floor(Math.random()*6);
+            ctx.beginPath();
+            ctx.arc(x,y,30,0,Math.PI*2,false);
+            ctx.strokeStyle=color[index];
+            ctx.stroke();
+            ctx.fillStyle=color[index];
+            ctx.fill();
+            
+        }*/
+        function Circle(x,y,dx,dy,radius){
+            this.x=x;
+            this.y=y;
+            this.dx=dx;
+            this.dy=dy;
+            this.radius=radius;
+            this.draw=function(){
+                ctx.beginPath(); 
+            ctx.arc(this.x,this.y,this.radius,0,Math.PI*2,false);
+            ctx.strokeStyle="blue";
+            ctx.stroke();
+            ctx.fillStyle="red";
+            ctx.fill();
+            }
+            this.update=function(){
+                if(this.x+this.radius>innerWidth|| this.x-this.radius<0)
+                {
+                    this.dx=-this.dx;
+                }
+                  this.x+=this.dx;
+     
+                 if(this.y+this.radius>innerHeight || this.y-this.radius<0)
+                 {
+                     this.dy=-this.dy;
+                 }
+                  this.y+=this.dy;
+                  this.draw();
+            }
+        }
+        
+        var circle=new Circle(200,200,3,3,30);
+        
+
+
+        var x=Math.random()*window.innerWidth; 
+        var y=Math.random()*window.innerHeight;
+        var dx=(Math.random()-0.5)*8;
+        var dy=(Math.random()-0.5)*8;
+        var radius=30;
+        
+       
+        function animate()
+        { 
+             
+           requestAnimationFrame(animate);
+           
+           ctx.clearRect(0,0,innerWidth,innerHeight); 
+           circle.update(); 
+           ctx.beginPath(); 
+           ctx.arc(x,y,radius,0,Math.PI*2,false);
+           ctx.strokeStyle="blue";
+           ctx.stroke();
+            ctx.fillStyle="red";
+            ctx.fill();
+
+
+           if(x+radius>innerWidth|| x-radius<0)
+           {
+               dx=-dx;
+           }
+             x+=dx;
+
+            if(y+radius>innerHeight || y-radius<0)
+            {
+                dy=-dy;
+            }
+             y+=dy;
+            
+            
+            
+        }
+        animate();
+       
+
+
+
+
+
+
+
+    </script>
+</html>

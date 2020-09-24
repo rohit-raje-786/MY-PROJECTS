@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            BACKGROUND COLOR CHANGE
+        </title>
+        <style>
+            *
+            {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            .bg
+            {
+                width: 300px;
+                height: 300px;
+                border: 1px solid black;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 10px;
+                background: lightblue;
+            }
+            .bgchange
+            {
+                background: black;
+                color: white;
+                outline: none;
+                padding: 20px;
+                text-transform: capitalize;
+                border: none;
+                cursor: pointer;
+                opacity: 0.8;
+               
+            }
+            .bgchange:hover{
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bg">
+            <button class="bgchange">press here to change the color
+            </button>
+        </div>
+        <script>
+            const color=['blue','orange','green','black','yellow','purple'];
+            
+            const btn=document.querySelector(".bgchange");
+            const bg=document.querySelector("body");
+            btn.addEventListener("click",()=>{
+                let index=Math.floor((Math.random())*color.length);
+                bg.style.background=color[index];
+                
+            });
+            
+        </script>
+    </body>
+</html>

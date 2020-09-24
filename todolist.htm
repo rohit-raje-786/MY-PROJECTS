@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+    <title>TODO LIST</title>
+    <style>
+        *
+        {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: linear-gradient(120deg,#f6d365,#fda085);
+            color: white;
+            font-family: 'Poppins',sans-serif;
+            min-height: 100vh;
+        }
+        header{
+            font-size: 1.5rem;;
+        }
+        header,form{
+            min-height: 20vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        form input,form button{
+            padding: 0.5rem;
+            font-size: 2rem;
+            border: none;
+            background: white;
+        }
+        form button{
+            color: #d88771;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        form button:hover{
+            background: #d88771;
+            color: white;
+        }
+        .todo-container
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .todo-list
+        {
+           min-width: 30%;
+           list-style: none; 
+        }
+        .todo{
+            margin: 0.5rem;
+            background: white;
+            color: black;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.5s ease;
+        }
+        .todo li{
+            flex: 1;
+        }
+        .trash-btn, .complete-btn{
+            background: #ff6f47;
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .complete-btn{
+            background: rgb(73,204,73);
+        }
+        .todo-item{
+            padding: 0rem 0.5rem;
+        }
+        .fa-trash,.fa-check{
+            pointer-events: none;
+        }
+        .completed
+        {
+            text-decoration: line-through;
+            opacity:0.5 ;
+        }
+        .fall{
+            transform: translateY(8rem) rotate(20deg);
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Raje's Todo List</h1>
+    </header>
+    <form>
+        <input type="text" class="todo-input">
+        <button type="submit" class="todo-button">
+            <i class="fas fa-plus-square"></i>
+        </button>
+    </form>
+    <div class="todo-container">
+        <ul class="todo-list">
+            <!-- <div class="todo">
+                <li></li>
+                <button>delete</button>
+                <button>check</button>
+            </div> -->
+        </ul>
+    </div>
+
+
+    <script>
+        
+        const todoinput=document.querySelector('.todo-input');
+        const todobutton=document.querySelector('.todo-button');
+        const todolist=document.querySelector('.todo-list');
+
+        todobutton.addEventListener('click',addtodo);
+        todolist.addEventListener('click',deletecheck);
+
+
+        function addtodo(event){
+            event.preventDefault();
+            const tododiv=document.createElement('div');
+            tododiv.classList.add('todo');
+
+            const newtodo=document.createElement('li');
+            newtodo.innerText=todoinput.value;
+            newtodo.classList.add('todo-item');
+            tododiv.appendChild(newtodo);
+
+            const completebutton=document.createElement('button');
+            completebutton.innerHTML="<i class='fas fa-check'></i>"
+            completebutton.classList.add('complete-btn');
+            tododiv.appendChild(completebutton);
+
+            const trashbutton=document.createElement('button');
+            trashbutton.innerHTML="<i class='fas fa-trash'></i>"
+            trashbutton.classList.add('trash-btn');
+            tododiv.appendChild(trashbutton);
+
+            todolist.appendChild(tododiv);
+            todoinput.value="";
+ }
+
+function deletecheck(e)
+{
+    const item=e.target;
+    if(item.classList[0]==='trash-btn')
+    {
+        const todo=item.parentElement;
+        todo.classList.add("fall");
+        todo.addEventListener('transitionend',()=>
+        {
+            todo.remove();
+        });
+    }
+    if(item.classList[0]==='complete-btn')
+    {
+        const todo=item.parentElement;
+        todo.classList.toggle('completed');
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            calculator
+        </title>
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            .myform{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                border: 1px solid black;
+                width: 250px;
+                height: 390px;
+                text-align: center;
+                background:black;
+                font-family: sans-serif;
+                letter-spacing: 3px;
+               
+            }
+            input{
+                padding:10px;
+                background:none;
+                color: white;
+                border: 1px solid white;
+                cursor: pointer;
+                outline: none;
+            }
+            .x{
+                margin: 0px 12px;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            #answer{
+                width: 100%;
+                border: 2px solid white;
+                cursor: default;
+            }
+            h1{
+                width: 500px;
+                border:2px solid white;
+                background: black;
+                color: white;
+                text-align: center;
+                letter-spacing: 2px;
+                word-spacing: 15px;
+                font-weight: 100;
+                margin: auto;
+                margin-top: 40px;
+                border-radius: 20px;
+                padding: 10px;
+
+            }
+            .x:hover{
+                box-shadow: 1px 1px 10px 3px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1> SIMPLE CALCULATOR</h1>
+        <form class="myform" name="calculator">
+            <input type="text" name="answer" id="answer">
+                <br><br>
+                <input type="button" value=" 1 " onclick="calculator.answer.value+= '1' " class="x">
+                <input type="button" value=" 2 " onclick="calculator.answer.value+= '2' "
+                class="x">
+                <input type="button" value=" 3 " onclick="calculator.answer.value+= '3' "
+                class="x">
+    
+                <br><br>
+    
+                <input type="button" value=" 4 " onclick="calculator.answer.value+= '4' "
+                class="x">
+                <input type="button" value=" 5 " onclick="calculator.answer.value+= '5' "
+                class="x">
+                <input type="button" value=" 6 " onclick="calculator.answer.value+= '6' "
+                class="x">
+    
+                <br><br>
+    
+                <input type="button" value=" 7 " onclick="calculator.answer.value+= '7' "
+                class="x">
+                <input type="button" value=" 8 " onclick="calculator.answer.value+= '8' "
+                class="x">
+                <input type="button" value=" 9 " onclick="calculator.answer.value+= '9' "
+                class="x">
+    
+                <br><br>
+    
+                <input type="button" value=" + " onclick="calculator.answer.value+= '+' "
+                class="x">
+                <input type="button" value=" - " onclick="calculator.answer.value+= '-' "
+                class="x">
+                <input type="button" value=" * " onclick="calculator.answer.value+= '*' "
+                class="x">
+    
+                <br><br>
+    
+                <input type="button" value=" / " onclick="calculator.answer.value+= '/' "
+                class="x">
+                <input type="button" value=" 0 " onclick="calculator.answer.value+= '0' "
+                class="x">
+                <input type="button" value=" = " onclick="calculator.answer.value= eval(calculator.answer.value) "
+                class="x">
+    
+                <br><br>
+    
+            
+
+           
+            <input type="button" value="CLEAR ALL " onclick="calculator.answer.value= '' " id="clear">
+        </form>
+    </body>
+</html>

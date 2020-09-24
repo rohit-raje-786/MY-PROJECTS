@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="inputs">
+        <input type="text" id="budget" placeholder="budget" autocomplete="none">
+
+        <input type="text" id="balance" placeholder="items" autocomplete="off">
+
+
+        <input type="text" id="item" placeholder="item amount" autocomplete="none">
+       
+    </div>
+   
+    <div class="display">
+        <span id="bud"></span><br>
+        <span id="ite"></span><br>
+        <span id="bala"></span>
+    </div>
+    <div class="lists">
+        <ul id="single"></ul>
+    </div>
+</body>
+<script>
+ /* const inputs=document.querySelectorAll('.inputs');
+  const bud=document.getElementById('bud');
+  const item=document.getElementById('ite');
+  const balance=document.getElementById('bala');
+  const single=document.getElementById('single');
+  
+   inputs.forEach((input)=>{
+       input.addEventListener('keypress',(e)=>{
+           if(e.target.id=='budget')
+           {
+               if(e.keyCode==13)
+               {
+                   var x=e.target.value;
+                   bud.innerText=x;
+                   balance.innerText=x;
+                   e.target.value='';
+               }
+           }
+           if(e.target.id=='item')
+           {
+               if(e.keyCode==13)
+               {
+                   var y=e.target.value;
+                   item.innerText=0;
+                   item.innerText+=y;
+                   balance.innerText-=y;
+                   const x=document.createElement('span');
+                   x.innerText=':'+y;
+                   single.appendChild(x);
+                   e.target.value=""; 
+               }
+           }
+           if(e.target.id=='balance')
+           {
+               if(e.keyCode==13)
+               {
+                    const x=document.createElement('li');
+                    x.innerText=e.target.value;
+                    single.appendChild(x);
+                    e.target.value="";
+               }
+           }
+
+       })
+   })*/
+   var sum=0;
+   for(var i=0;i<10;i++)
+   {
+       
+       sum=sum+i;
+       console.log(sum);
+   }
+</script>
+</html>
